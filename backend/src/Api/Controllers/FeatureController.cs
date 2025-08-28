@@ -1,4 +1,4 @@
-using BasarApp.Controllers.Extensions;
+using BasarApp.Api.Controllers.Extensions;
 using BasarApp.Application.Dtos;
 using BasarApp.Application.Abstractions;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Linq;                             
 using System.Net;
 
-namespace BasarApp.Controllers
+namespace BasarApp.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -4,6 +4,7 @@ using BasarApp.Shared.Contracts;
 using BasarApp.Application.Abstractions;
 using BasarApp.Shared.Resources;
 using BasarApp.Application.Validators;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BasarApp.Application.Services.Implementations
 {
@@ -17,7 +18,7 @@ namespace BasarApp.Application.Services.Implementations
         private readonly IUnitOfWork _unitOfWork;
         private readonly FeatureDtoValidator _validator;
 
-        public FeatureEfService(IUnitOfWork unitOfWork, FeatureDtoValidator validator)
+        public FeatureEfService([FromKeyedServices("ef")] IUnitOfWork unitOfWork, FeatureDtoValidator validator)
         {
             _unitOfWork = unitOfWork;
             _validator = validator;

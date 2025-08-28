@@ -3,7 +3,7 @@ using Npgsql;
 using NetTopologySuite.Geometries;
 using BasarApp.Application.Abstractions;
 
-namespace BasarApp.Repositories.Implementations
+namespace BasarApp.Infrastructure.Repositories
 {
     public class FeatureAdoRepository : IFeatureRepository
     {

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using BasarApp.Shared.Contracts;
 using BasarApp.Shared.Resources;
 
-namespace BasarApp.Controllers.Extensions
+namespace BasarApp.Api.Controllers.Extensions
 {
     /// <summary>
     /// ApiResponse<T> -> IActionResult HTTP durum eşlemesi.

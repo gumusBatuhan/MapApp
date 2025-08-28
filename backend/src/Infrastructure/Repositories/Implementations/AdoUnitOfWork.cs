@@ -1,7 +1,8 @@
 using BasarApp.Application.Abstractions;
 using Npgsql;
+using BasarApp.Infrastructure.Repositories;
 
-namespace BasarApp.Repositories.Implementations
+namespace BasarApp.Infrastructure.Repositories.Implementations
 {
     public class AdoUnitOfWork : IUnitOfWork, IAsyncDisposable
     {

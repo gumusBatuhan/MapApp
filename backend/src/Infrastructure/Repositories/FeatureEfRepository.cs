@@ -3,7 +3,7 @@ using BasarApp.Application.Abstractions;
 using BasarApp.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
-namespace BasarApp.Repositories.Implementations
+namespace BasarApp.Infrastructure.Repositories
 {
     /// <summary>
     /// IFeatureRepository'nin EF Core implementasyonu.

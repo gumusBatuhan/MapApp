@@ -1,1 +1,1 @@
-global using FeatureDtoValidator = BasarApp.Application.Validation.FeatureDtoValidator;
+global using FeatureDtoValidator = BasarApp.Application.Validators.FeatureDtoValidator;

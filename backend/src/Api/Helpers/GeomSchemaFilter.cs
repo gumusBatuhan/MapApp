@@ -3,7 +3,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using NetTopologySuite.Geometries;
 
-namespace BasarApp.Helpers
+namespace BasarApp.Api.Helpers
 {
     public class GeomSchemaFilter : ISchemaFilter
     {

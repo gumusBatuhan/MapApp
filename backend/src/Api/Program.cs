@@ -1,61 +1,64 @@
-using BasarApp.Infrastructure.Repositories.Implementations;
-using BasarApp.Application.Services.Implementations;
-using Microsoft.OpenApi.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using BasarApp.Application.Abstractions;
-using BasarApp.Repositories.Implementations;
-using BasarApp.Shared.Web.Json;
-using BasarApp.Helpers;
+using BasarApp.Application.Dtos;
+using BasarApp.Application.Services.Implementations;
 using BasarApp.Infrastructure.Persistence;
+using BasarApp.Infrastructure.Repositories.Implementations;
+using BasarApp.Shared.Web.Json;
+using BasarApp.Api.Helpers;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.DependencyInjection;
 
 using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ---- CORS TANIMI (BUILD ÖNCESİ) ----
+// ---- CORS ----
 var MyCors = "_myCors";
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(MyCors, p =>
-        p.WithOrigins(
-            "http://localhost:5173",   // Vite dev
-            "http://127.0.0.1:5173"    // bazen tarayıcı bu hostu kullanır
-        )
-        .AllowAnyHeader()
-        .AllowAnyMethod()
+        p.WithOrigins("http://localhost:5173", "http://127.0.0.1:5173")
+         .AllowAnyHeader()
+         .AllowAnyMethod()
     );
 });
 
-// 2) ADO tarafı için NpgsqlDataSource
+// ---- Connection & ADO DataSource ----
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var dataSourceBuilder = new NpgsqlDataSourceBuilder(connectionString);
 dataSourceBuilder.UseNetTopologySuite();
 var dataSource = dataSourceBuilder.Build();
 builder.Services.AddSingleton(dataSource);
 
-// 3) EF Core DbContext
+// ---- EF Core DbContext ----
 builder.Services.AddDbContext<BasarAppDbContext>(options =>
-    options.UseNpgsql(connectionString, o => o.UseNetTopologySuite(, b => b.MigrationsAssembly(typeof(BasarApp.Infrastructure.Persistence.BasarAppDbContext).Assembly.FullName)))
+    options.UseNpgsql(connectionString, npgsql => npgsql.UseNetTopologySuite())
 );
 
-// 4) Validator
-builder.Services.AddScoped<FeatureDtoValidator>();
+// ---- FluentValidation (11.x) ----
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<FeatureDto>();
 
-// 5) UnitOfWork kayıtları
-builder.Services.AddScoped<IUnitOfWork, EfUnitOfWork>();
+// ---- Keyed DI: UoW ----
+builder.Services.AddKeyedScoped<IUnitOfWork, EfUnitOfWork>("ef");
+builder.Services.AddKeyedScoped<IUnitOfWork, AdoUnitOfWork>("ado");
 
-// 6) Service kayıtları
-builder.Services.AddScoped<IFeatureService, FeatureEfService>();
+// ---- Keyed DI: Services ----
+builder.Services.AddKeyedScoped<IFeatureService, FeatureEfService>("ef");
+builder.Services.AddKeyedScoped<IFeatureService, FeatureAdoService>("ado");
 
-// 7) Controllers + Newtonsoft.Json (GeoJSON)
+// ---- Controllers + Newtonsoft (GeoJSON) ----
 builder.Services.AddControllers()
     .AddNewtonsoftJson(options =>
     {
         options.SerializerSettings.Converters.Add(new GeomJsonConverter());
     });
 
-// 8) Swagger
+// ---- Swagger ----
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -80,10 +83,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-// ---- CORS’U ORTAYA KOY (MAPTEN ÖNCE) ----
 app.UseCors(MyCors);
-
 app.UseAuthorization();
-app.MapControllers(); // /api/feature route burada map’leniyor (Controller attribute’undan gelir)
-
+app.MapControllers();
 app.Run();

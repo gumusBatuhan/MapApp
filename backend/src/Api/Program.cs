@@ -3,8 +3,6 @@ using BasarApp.Application.Services.Implementations;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using BasarApp.Services;
-using BasarApp.Application.Abstractions;
 using BasarApp.Application.Abstractions;
 using BasarApp.Repositories.Implementations;
 using BasarApp.Shared.Web.Json;

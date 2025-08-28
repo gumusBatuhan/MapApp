@@ -1,6 +1,6 @@
 using BasarApp.Controllers.Extensions;
 using BasarApp.Application.Dtos;
-using BasarApp.Services.Interfaces;
+using BasarApp.Application.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;                             

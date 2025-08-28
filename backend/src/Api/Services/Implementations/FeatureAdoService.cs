@@ -1,10 +1,10 @@
 using BasarApp.Application.Dtos;
 using BasarApp.Domain.Entities;
 using BasarApp.Shared.Resources;
-using BasarApp.Repositories.Interfaces;
+using BasarApp.Application.Abstractions;
 using BasarApp.Shared.Contracts;
-using BasarApp.Application.Dtos.Validation;
-using BasarApp.Services.Interfaces;
+using BasarApp.Application.Validation;
+using BasarApp.Application.Abstractions;
 
 namespace BasarApp.Services
 {

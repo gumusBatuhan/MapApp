@@ -1,7 +1,7 @@
 using BasarApp.Domain.Entities;
 using Npgsql;
 using NetTopologySuite.Geometries;
-using BasarApp.Repositories.Interfaces;
+using BasarApp.Application.Abstractions;
 
 namespace BasarApp.Repositories.Implementations
 {

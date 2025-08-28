@@ -2,12 +2,12 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using BasarApp.Services;
-using BasarApp.Services.Interfaces;
-using BasarApp.Repositories.Interfaces;
+using BasarApp.Application.Abstractions;
+using BasarApp.Application.Abstractions;
 using BasarApp.Repositories.Implementations;
 using BasarApp.Shared.Web.Json;
 using BasarApp.Helpers;
-using BasarApp.Application.Dtos.Validation;
+using BasarApp.Application.Validation;
 using BasarApp.Data;
 
 using Npgsql;

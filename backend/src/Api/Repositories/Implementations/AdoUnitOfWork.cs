@@ -1,4 +1,4 @@
-using BasarApp.Repositories.Interfaces;
+using BasarApp.Application.Abstractions;
 using Npgsql;
 
 namespace BasarApp.Repositories.Implementations

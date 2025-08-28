@@ -1,4 +1,4 @@
-namespace BasarApp.Repositories.Interfaces
+namespace BasarApp.Application.Abstractions
 {
     public interface IUnitOfWork
     {

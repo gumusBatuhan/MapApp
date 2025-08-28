@@ -46,13 +46,9 @@ builder.Services.AddScoped<FeatureDtoValidator>();
 
 // 5) UnitOfWork kayıtları
 builder.Services.AddScoped<IUnitOfWork, EfUnitOfWork>();
-builder.Services.AddKeyedScoped<IUnitOfWork, AdoUnitOfWork>("ado");
-builder.Services.AddKeyedScoped<IUnitOfWork, EfUnitOfWork>("ef");
 
 // 6) Service kayıtları
 builder.Services.AddScoped<IFeatureService, FeatureEfService>();
-builder.Services.AddKeyedScoped<IFeatureService, FeatureAdoService>("ado");
-builder.Services.AddKeyedScoped<IFeatureService, FeatureEfService>("ef");
 
 // 7) Controllers + Newtonsoft.Json (GeoJSON)
 builder.Services.AddControllers()

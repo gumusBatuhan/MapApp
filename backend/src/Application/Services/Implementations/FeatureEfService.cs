@@ -17,7 +17,7 @@ namespace BasarApp.Application.Services.Implementations
         private readonly IUnitOfWork _unitOfWork;
         private readonly FeatureDtoValidator _validator;
 
-        public FeatureEfService([FromKeyedServices("ef")] IUnitOfWork unitOfWork, FeatureDtoValidator validator)
+        public FeatureEfService(IUnitOfWork unitOfWork, FeatureDtoValidator validator)
         {
             _unitOfWork = unitOfWork;
             _validator = validator;

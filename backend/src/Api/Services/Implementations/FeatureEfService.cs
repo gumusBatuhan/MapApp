@@ -1,6 +1,6 @@
 using BasarApp.Application.Dtos;
 using BasarApp.Domain.Entities;
-using BasarApp.Models;
+using BasarApp.Shared.Contracts;
 using BasarApp.Repositories.Interfaces;
 using BasarApp.Resources;
 using BasarApp.Services.Interfaces;

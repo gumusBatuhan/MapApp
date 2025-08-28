@@ -1,5 +1,5 @@
 using BasarApp.Application.Dtos;
-using BasarApp.Models;
+using BasarApp.Shared.Contracts;
 
 namespace BasarApp.Application.Abstractions
 {

@@ -1,6 +1,6 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using BasarApp.Models;
+using BasarApp.Shared.Contracts;
 using BasarApp.Resources;
 
 namespace BasarApp.Controllers.Extensions

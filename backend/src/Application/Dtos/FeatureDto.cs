@@ -1,6 +1,6 @@
 using NetTopologySuite.Geometries;
 using Newtonsoft.Json;
-using BasarApp.Converters;
+using BasarApp.Shared.Web.Json;
 
 namespace BasarApp.Application.Dtos
 {

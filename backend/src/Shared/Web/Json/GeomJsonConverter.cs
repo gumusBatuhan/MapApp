@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using BasarApp.Resources;
 
-namespace BasarApp.Converters
+namespace BasarApp.Shared.Web.Json
 {
     /// <summary>
     /// Geometry &lt;-&gt; GeoJSON dönüştürücüsü (Newtonsoft.Json için).

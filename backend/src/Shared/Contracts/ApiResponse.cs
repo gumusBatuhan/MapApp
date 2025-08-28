@@ -1,4 +1,4 @@
-namespace BasarApp.Models
+namespace BasarApp.Shared.Contracts
 {
     public class ApiResponse<T>
     {

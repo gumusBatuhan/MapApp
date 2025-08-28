@@ -5,7 +5,7 @@ using BasarApp.Services;
 using BasarApp.Services.Interfaces;
 using BasarApp.Repositories.Interfaces;
 using BasarApp.Repositories.Implementations;
-using BasarApp.Converters;
+using BasarApp.Shared.Web.Json;
 using BasarApp.Helpers;
 using BasarApp.Application.Dtos.Validation;
 using BasarApp.Data;

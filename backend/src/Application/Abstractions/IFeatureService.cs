@@ -1,7 +1,7 @@
-using BasarApp.Dtos;
+using BasarApp.Application.Dtos;
 using BasarApp.Models;
 
-namespace BasarApp.Services.Interfaces
+namespace BasarApp.Application.Abstractions
 {
     public interface IFeatureService
     {

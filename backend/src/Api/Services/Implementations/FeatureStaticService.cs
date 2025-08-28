@@ -1,4 +1,4 @@
-using BasarApp.Dtos;
+using BasarApp.Application.Dtos;
 using BasarApp.Helpers;
 using BasarApp.Models;
 using BasarApp.Resources;

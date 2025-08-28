@@ -1,9 +1,9 @@
-using BasarApp.Dtos;
+using BasarApp.Application.Dtos;
 using BasarApp.Domain.Entities;
 using BasarApp.Resources;
 using BasarApp.Repositories.Interfaces;
 using BasarApp.Models;
-using BasarApp.DTOs.Validation;
+using BasarApp.Application.Dtos.Validation;
 using BasarApp.Services.Interfaces;
 
 namespace BasarApp.Services

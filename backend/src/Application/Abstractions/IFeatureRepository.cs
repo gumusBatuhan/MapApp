@@ -1,6 +1,6 @@
 using BasarApp.Domain.Entities;
 
-namespace BasarApp.Repositories.Interfaces
+namespace BasarApp.Application.Abstractions
 {
     public interface IFeatureRepository
     {

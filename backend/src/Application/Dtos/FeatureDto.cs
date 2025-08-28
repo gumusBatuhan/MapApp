@@ -2,7 +2,7 @@ using NetTopologySuite.Geometries;
 using Newtonsoft.Json;
 using BasarApp.Converters;
 
-namespace BasarApp.Dtos
+namespace BasarApp.Application.Dtos
 {
     public class FeatureDto
     {

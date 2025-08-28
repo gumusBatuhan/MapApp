@@ -7,7 +7,7 @@ using BasarApp.Repositories.Interfaces;
 using BasarApp.Repositories.Implementations;
 using BasarApp.Converters;
 using BasarApp.Helpers;
-using BasarApp.DTOs.Validation;
+using BasarApp.Application.Dtos.Validation;
 using BasarApp.Data;
 
 using Npgsql;

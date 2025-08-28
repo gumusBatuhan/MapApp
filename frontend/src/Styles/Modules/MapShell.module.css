@@ -1,0 +1,89 @@
+/* MapShell full-bleed kart */
+.wrapper {
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  box-shadow: none;
+}
+
+/* Harita kapsayıcısı */
+.mapContainer{
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 72vh;
+  min-height: 560px;
+  block-size: min(72vh, 800px);
+  min-block-size: 560px;
+}
+
+/* Harita div’i kapsayıcıyı tamamen doldursun ve kenarlardan sıfırlansın */
+.map{
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: 0;
+  overflow: hidden;
+  border: 0;
+  box-shadow: none;
+}
+
+/* (İstersen) floating tools / legend kalsın */
+.floatingTools{
+  position:absolute; left:12px; top:12px; display:flex; flex-direction:column; gap:8px;
+  background: rgba(8,12,25,.7);
+  border:1px solid var(--border);
+  border-radius:14px; padding:8px;
+  backdrop-filter: blur(6px) saturate(130%);
+}
+.toolButton{
+  width:36px; height:36px; display:grid; place-items:center;
+  border-radius:10px; border:1px solid var(--border);
+  background:#0f1733; color:var(--text); cursor:pointer;
+}
+.toolButton:hover{ background:#14224a; }
+.toolButton.active{ outline:2px solid rgba(124,156,255,.45); }
+
+.legend{
+  position:absolute; right:12px; top:12px; display:flex; align-items:center; gap:8px;
+}
+.legend .badge{ background:#091128; }
+
+/* === Map Popup ========================================================== */
+.popup{
+  position: absolute;
+  transform: translate(-50%, -100%);
+  min-width: 220px;
+  max-width: 320px;
+  background: var(--surface, #101a36);
+  color: var(--text, #e6ecff);
+  border: 1px solid var(--border, rgba(255,255,255,.08));
+  border-radius: 12px;
+  box-shadow: var(--shadow, 0 8px 30px rgba(0,0,0,.4));
+  padding: 10px 12px;
+  pointer-events: auto;
+}
+.popup:after{
+  content: "";
+  position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%);
+  border: 8px solid transparent; border-top-color: var(--surface, #101a36);
+  filter: drop-shadow(0 -1px 0 var(--border, rgba(255,255,255,.08)));
+}
+.popupHeader{ display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.popupTitle{ font-weight: 700; font-size: 14px; }
+.popupClose{
+  appearance: none; border: 0; background: transparent; color: var(--muted, #9bb0d8);
+  cursor: pointer; padding: 4px; line-height: 0;
+}
+.popupRow{
+  display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: baseline;
+}
+.popupLabel{ font-size: 12px; color: var(--muted, #9bb0d8); }
+.popupValue{ font-size: 13px; font-weight: 600; color: var(--text, #e6ecff); }
+
+/* --- İKON: buton metniyle güzel hizalama için --- */
+.btnIcon{
+  display: inline-block;
+  vertical-align: -2px;  /* çok hafif aşağı alır */
+  margin-right: 6px;     /* ikon-metni arası boşluk */
+}

@@ -1,0 +1,55 @@
+/* ---------- Form genel ---------- */
+.form { color: #ffffff; }
+.group{ margin-bottom: 8px; }
+
+.label{
+  color: var(--muted, #9bb0d8);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .55px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.control{
+  color: #ffffff !important;
+  background: #0f1733 !important;
+  border: 1px solid var(--border, rgba(255,255,255,.08)) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+.control::placeholder{ color: rgba(230,236,255,.6); }
+.control:focus{
+  border-color: rgba(124,156,255,.45) !important;
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(124,156,255,.18) !important;
+}
+
+.select{ height: 40px; padding-top: 6px; padding-bottom: 6px; }
+.textarea{ line-height: 1.45; resize: vertical; }
+
+.locked{ opacity: .75; cursor: not-allowed; }
+
+/* ---------- Modal (yalnızca bu popup) ---------- */
+.modalContent{
+  background: #0b1020;
+  border: 1px solid var(--border, rgba(255,255,255,.08));
+  border-radius: 14px;
+}
+.modalHeader{
+  background: linear-gradient(180deg, rgba(14,20,42,.95), rgba(12,18,38,.92));
+  border-bottom: 1px solid var(--border, rgba(255,255,255,.08));
+  padding-block: 10px;
+}
+.modalTitle{
+  color: #ffffff;        /* Belirgin başlık */
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: .35px;
+  text-shadow: 0 2px 18px rgba(124,156,255,.45), 0 0 1px rgba(255,255,255,.6);
+  margin: 0;
+  padding-right: 6px;
+  /* NOT: Alttaki çizgi İSTENMİYOR → ::after tanımı yok */
+}
+.modalClose{ filter: invert(90%); opacity: .8; }
+.modalClose:hover{ opacity: 1; }

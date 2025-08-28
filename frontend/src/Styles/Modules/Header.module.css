@@ -1,0 +1,44 @@
+/* Tam genişlik, blur’lu arka plan, dış boşluk yok */
+.wrap{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+  backdrop-filter: saturate(140%) blur(8px);
+  background: linear-gradient(180deg, rgba(9,14,30,.86), rgba(9,14,30,.72));
+  border-bottom: 1px solid var(--border);
+}
+
+/* İç düzen – kenar boşluğu içerden veriliyor; arka plan her yere yayılır */
+.inner{
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-inline: 16px; /* sol/sağ iç boşluk */
+}
+
+.brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: .3px;
+  text-decoration: none;
+  color: var(--text);
+}
+.mark{
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 18px rgba(124,156,255,.6);
+}
+
+.spacer{ flex: 1; }
+.actions{ display: flex; align-items: center; gap: 8px; }
+
+.btnText{ margin-left: 6px; }
+@media (max-width: 480px){
+  .btnText{ display: none; }
+}

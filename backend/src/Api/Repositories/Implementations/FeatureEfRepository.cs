@@ -1,4 +1,4 @@
-using BasarApp.Entities;
+using BasarApp.Domain.Entities;
 using BasarApp.Repositories.Interfaces;
 using BasarApp.Data;
 using Microsoft.EntityFrameworkCore;

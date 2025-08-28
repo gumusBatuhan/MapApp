@@ -1,4 +1,4 @@
-using BasarApp.Entities;
+using BasarApp.Domain.Entities;
 using Npgsql;
 using NetTopologySuite.Geometries;
 using BasarApp.Repositories.Interfaces;

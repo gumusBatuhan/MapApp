@@ -1,4 +1,4 @@
-using BasarApp.Entities;
+using BasarApp.Domain.Entities;
 
 namespace BasarApp.Repositories.Interfaces
 {

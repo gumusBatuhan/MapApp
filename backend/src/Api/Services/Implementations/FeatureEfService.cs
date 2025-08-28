@@ -1,5 +1,5 @@
 using BasarApp.Dtos;
-using BasarApp.Entities;
+using BasarApp.Domain.Entities;
 using BasarApp.Models;
 using BasarApp.Repositories.Interfaces;
 using BasarApp.Resources;

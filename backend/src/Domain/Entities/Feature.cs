@@ -1,6 +1,6 @@
 using NetTopologySuite.Geometries;
 
-namespace BasarApp.Entities
+namespace BasarApp.Domain.Entities
 {
     public class Feature
     {

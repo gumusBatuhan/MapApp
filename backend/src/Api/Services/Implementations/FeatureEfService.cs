@@ -2,7 +2,7 @@ using BasarApp.Application.Dtos;
 using BasarApp.Domain.Entities;
 using BasarApp.Shared.Contracts;
 using BasarApp.Repositories.Interfaces;
-using BasarApp.Resources;
+using BasarApp.Shared.Resources;
 using BasarApp.Services.Interfaces;
 using BasarApp.Application.Dtos.Validation;
 

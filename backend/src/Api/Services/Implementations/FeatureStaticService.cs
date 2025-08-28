@@ -1,7 +1,7 @@
 using BasarApp.Application.Dtos;
 using BasarApp.Helpers;
 using BasarApp.Shared.Contracts;
-using BasarApp.Resources;
+using BasarApp.Shared.Resources;
 using NetTopologySuite.Geometries;
 /*
 namespace BasarApp.Services

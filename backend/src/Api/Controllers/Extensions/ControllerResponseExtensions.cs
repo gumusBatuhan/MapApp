@@ -1,7 +1,7 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using BasarApp.Shared.Contracts;
-using BasarApp.Resources;
+using BasarApp.Shared.Resources;
 
 namespace BasarApp.Controllers.Extensions
 {

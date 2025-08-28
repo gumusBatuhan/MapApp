@@ -1,4 +1,4 @@
-namespace BasarApp.Resources
+namespace BasarApp.Shared.Resources
 {
     /*
     Messages sınıfı, uygulama genelinde kullanılabilecek hata ve başarı mesajlarını merkezi olarak tutar.

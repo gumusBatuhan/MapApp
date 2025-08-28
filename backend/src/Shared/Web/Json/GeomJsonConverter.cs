@@ -3,7 +3,7 @@ using NetTopologySuite.Geometries;
 using NetTopologySuite.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using BasarApp.Resources;
+using BasarApp.Shared.Resources;
 
 namespace BasarApp.Shared.Web.Json
 {

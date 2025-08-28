@@ -22,4 +22,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Application\BasarApp.Application.csproj" />
+    <ProjectReference Include="..\Infrastructure\BasarApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\Shared\BasarApp.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

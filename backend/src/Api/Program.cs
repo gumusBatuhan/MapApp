@@ -1,3 +1,5 @@
+using BasarApp.Infrastructure.Repositories.Implementations;
+using BasarApp.Application.Services.Implementations;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,12 +45,12 @@ builder.Services.AddDbContext<BasarAppDbContext>(options =>
 builder.Services.AddScoped<FeatureDtoValidator>();
 
 // 5) UnitOfWork kayıtları
-builder.Services.AddScoped<IUnitOfWork, AdoUnitOfWork>();
+builder.Services.AddScoped<IUnitOfWork, EfUnitOfWork>();
 builder.Services.AddKeyedScoped<IUnitOfWork, AdoUnitOfWork>("ado");
 builder.Services.AddKeyedScoped<IUnitOfWork, EfUnitOfWork>("ef");
 
 // 6) Service kayıtları
-builder.Services.AddScoped<IFeatureService, FeatureAdoService>();
+builder.Services.AddScoped<IFeatureService, FeatureEfService>();
 builder.Services.AddKeyedScoped<IFeatureService, FeatureAdoService>("ado");
 builder.Services.AddKeyedScoped<IFeatureService, FeatureEfService>("ef");
 

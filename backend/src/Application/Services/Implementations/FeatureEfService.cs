@@ -1,18 +1,23 @@
 using BasarApp.Application.Dtos;
 using BasarApp.Domain.Entities;
-using BasarApp.Shared.Resources;
-using BasarApp.Application.Abstractions;
 using BasarApp.Shared.Contracts;
 using BasarApp.Application.Abstractions;
+using BasarApp.Shared.Resources;
+using BasarApp.Application.Abstractions;
 
-namespace BasarApp.Services
+namespace BasarApp.Application.Services.Implementations
 {
-    public class FeatureAdoService : IFeatureService
+    /// <summary>
+    /// EF Core tabanlı IFeatureService implementasyonu.
+    /// Aynı DTO, Validator, ApiResponse, Messages, BatchError kullanır.
+    /// UoW: EfUnitOfWork
+    /// </summary>
+    public class FeatureEfService : IFeatureService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly FeatureDtoValidator _validator;
 
-        public FeatureAdoService(IUnitOfWork unitOfWork, FeatureDtoValidator validator)
+        public FeatureEfService([FromKeyedServices("ef")] IUnitOfWork unitOfWork, FeatureDtoValidator validator)
         {
             _unitOfWork = unitOfWork;
             _validator = validator;
@@ -24,24 +29,14 @@ namespace BasarApp.Services
             if (entity == null)
                 return ApiResponse<FeatureDto>.FailResponse(Messages.Error.NotFound);
 
-            var dto = new FeatureDto
-            {
-                Name = entity.Name,
-                Geom = entity.Geom
-            };
-
+            var dto = new FeatureDto { Name = entity.Name, Geom = entity.Geom };
             return ApiResponse<FeatureDto>.SuccessResponse(dto, Messages.Success.Found);
         }
 
         public async Task<ApiResponse<List<FeatureDto>>> GetAllAsync(CancellationToken ct)
         {
             var entities = await _unitOfWork.FeatureRepository.GetAllAsync(ct);
-            var dtos = entities.Select(e => new FeatureDto
-            {
-                Name = e.Name,
-                Geom = e.Geom
-            }).ToList();
-
+            var dtos = entities.Select(e => new FeatureDto { Name = e.Name, Geom = e.Geom }).ToList();
             return ApiResponse<List<FeatureDto>>.SuccessResponse(dtos, Messages.Success.AllListed);
         }
 
@@ -51,18 +46,13 @@ namespace BasarApp.Services
             if (!validation.IsValid)
                 return ApiResponse<FeatureDto>.FailResponse(validation.Errors.First().ErrorMessage);
 
-            var entity = new Feature
-            {
-                Name = dto.Name,
-                Geom = dto.Geom
-            };
+            var entity = new Feature { Name = dto.Name, Geom = dto.Geom };
 
             try
             {
                 await _unitOfWork.BeginTransactionAsync(ct);
                 await _unitOfWork.FeatureRepository.AddAsync(entity, ct);
                 await _unitOfWork.CommitAsync(ct);
-
                 return ApiResponse<FeatureDto>.SuccessResponse(dto, Messages.Success.Added);
             }
             catch (Exception ex)
@@ -91,12 +81,7 @@ namespace BasarApp.Services
                     errors.Add(new BatchError(i + 1, "Geom/Name", validation.Errors.First().ErrorMessage));
                     continue;
                 }
-
-                entities.Add(new Feature
-                {
-                    Name = dto.Name,
-                    Geom = dto.Geom
-                });
+                entities.Add(new Feature { Name = dto.Name, Geom = dto.Geom });
             }
 
             if (errors.Count > 0)
@@ -107,13 +92,11 @@ namespace BasarApp.Services
                 await _unitOfWork.BeginTransactionAsync(ct);
                 await _unitOfWork.FeatureRepository.AddRangeAsync(entities, ct);
                 await _unitOfWork.CommitAsync(ct);
-
                 return ApiResponse<List<FeatureDto>>.SuccessResponse(dtoList, Messages.Success.Added);
             }
             catch (Exception ex)
             {
                 await _unitOfWork.RollbackAsync(ct);
-                // TEK FORMAT: UnexpectedWith(ex)
                 return ApiResponse<List<FeatureDto>>.FailResponse(Messages.Error.UnexpectedWith(ex));
             }
         }
@@ -128,25 +111,18 @@ namespace BasarApp.Services
             if (!exists)
                 return ApiResponse<FeatureDto>.FailResponse(Messages.Error.NotFound);
 
-            var entity = new Feature
-            {
-                Id = id,
-                Name = dto.Name,
-                Geom = dto.Geom
-            };
+            var entity = new Feature { Id = id, Name = dto.Name, Geom = dto.Geom };
 
             try
             {
                 await _unitOfWork.BeginTransactionAsync(ct);
                 await _unitOfWork.FeatureRepository.UpdateAsync(entity, ct);
                 await _unitOfWork.CommitAsync(ct);
-
                 return ApiResponse<FeatureDto>.SuccessResponse(dto, Messages.Success.Updated);
             }
             catch (Exception ex)
             {
                 await _unitOfWork.RollbackAsync(ct);
-                // TEK FORMAT: UnexpectedWith(ex)
                 return ApiResponse<FeatureDto>.FailResponse(Messages.Error.UnexpectedWith(ex));
             }
         }
@@ -162,13 +138,11 @@ namespace BasarApp.Services
                 await _unitOfWork.BeginTransactionAsync(ct);
                 await _unitOfWork.FeatureRepository.DeleteAsync(id, ct);
                 await _unitOfWork.CommitAsync(ct);
-
                 return ApiResponse<bool>.SuccessResponse(true, Messages.Success.Deleted);
             }
             catch (Exception ex)
             {
                 await _unitOfWork.RollbackAsync(ct);
-                // TEK FORMAT: UnexpectedWith(ex)
                 return ApiResponse<bool>.FailResponse(Messages.Error.UnexpectedWith(ex));
             }
         }

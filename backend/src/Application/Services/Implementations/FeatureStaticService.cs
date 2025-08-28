@@ -4,7 +4,7 @@ using BasarApp.Shared.Contracts;
 using BasarApp.Shared.Resources;
 using NetTopologySuite.Geometries;
 /*
-namespace BasarApp.Services
+namespace BasarApp.Application.Services.Implementations
 {
     public class FeatureStaticService : IFeatureService
     {

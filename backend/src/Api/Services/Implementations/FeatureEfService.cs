@@ -4,7 +4,6 @@ using BasarApp.Shared.Contracts;
 using BasarApp.Application.Abstractions;
 using BasarApp.Shared.Resources;
 using BasarApp.Application.Abstractions;
-using BasarApp.Application.Validation;
 
 namespace BasarApp.Services
 {

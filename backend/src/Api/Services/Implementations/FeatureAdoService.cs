@@ -3,7 +3,6 @@ using BasarApp.Domain.Entities;
 using BasarApp.Shared.Resources;
 using BasarApp.Application.Abstractions;
 using BasarApp.Shared.Contracts;
-using BasarApp.Application.Validation;
 using BasarApp.Application.Abstractions;
 
 namespace BasarApp.Services

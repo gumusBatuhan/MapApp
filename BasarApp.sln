@@ -1,24 +1,44 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasarApp", "backend/src/BasarApp/BasarApp.csproj", "{B3CD393E-ECAF-84AC-D07B-9CF27F1744CC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{3DDBD13E-D23A-4F2E-89D5-04F1906D380D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BDB25DF3-8240-48F0-BF9D-9F8D86040FC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasarApp.Api", "backend\src\Api\BasarApp.Api.csproj", "{0CA42426-CFAF-47E0-9052-E193E177DD4E}"
 EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B3CD393E-ECAF-84AC-D07B-9CF27F1744CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3CD393E-ECAF-84AC-D07B-9CF27F1744CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3CD393E-ECAF-84AC-D07B-9CF27F1744CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3CD393E-ECAF-84AC-D07B-9CF27F1744CC}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2C94C384-EDBF-4816-86DB-2EF4D7C7CB86}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E}.Debug|x64.Build.0 = Debug|Any CPU
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E}.Debug|x86.Build.0 = Debug|Any CPU
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E}.Release|x64.ActiveCfg = Release|Any CPU
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E}.Release|x64.Build.0 = Release|Any CPU
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E}.Release|x86.ActiveCfg = Release|Any CPU
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BDB25DF3-8240-48F0-BF9D-9F8D86040FC8} = {3DDBD13E-D23A-4F2E-89D5-04F1906D380D}
+		{0CA42426-CFAF-47E0-9052-E193E177DD4E} = {BDB25DF3-8240-48F0-BF9D-9F8D86040FC8}
 	EndGlobalSection
 EndGlobal

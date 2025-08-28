@@ -1,7 +1,7 @@
 using BasarApp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace BasarApp.Data
+namespace BasarApp.Infrastructure.Persistence
 {
     public class BasarAppDbContext : DbContext
     {

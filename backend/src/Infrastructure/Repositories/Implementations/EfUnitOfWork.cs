@@ -1,6 +1,6 @@
 using BasarApp.Application.Abstractions;
 using Microsoft.EntityFrameworkCore.Storage;
-
+using BasarApp.Infrastructure.Persistence;
 namespace BasarApp.Repositories.Implementations
 {
     /// <summary>

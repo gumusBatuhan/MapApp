@@ -7,7 +7,6 @@ using BasarApp.Application.Abstractions;
 using BasarApp.Repositories.Implementations;
 using BasarApp.Shared.Web.Json;
 using BasarApp.Helpers;
-using BasarApp.Application.Validation;
 using BasarApp.Data;
 
 using Npgsql;

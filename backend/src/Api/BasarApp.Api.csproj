@@ -16,7 +16,6 @@
     <PackageReference Include="NetTopologySuite" Version="2.6.0" />
     <PackageReference Include="NetTopologySuite.IO.GeoJSON" Version="4.0.0" />
     <PackageReference Include="Npgsql" Version="9.0.3" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.10" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite" Version="8.0.10" />
     <PackageReference Include="Npgsql.NetTopologySuite" Version="8.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.0" />

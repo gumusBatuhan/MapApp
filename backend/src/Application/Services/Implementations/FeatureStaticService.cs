@@ -1,5 +1,5 @@
 using BasarApp.Application.Dtos;
-using BasarApp.Helpers;
+using BasarApp.Shared.Web;
 using BasarApp.Shared.Contracts;
 using BasarApp.Shared.Resources;
 using NetTopologySuite.Geometries;

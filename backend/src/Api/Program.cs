@@ -9,7 +9,7 @@ using BasarApp.Application.Abstractions;
 using BasarApp.Repositories.Implementations;
 using BasarApp.Shared.Web.Json;
 using BasarApp.Helpers;
-using BasarApp.Data;
+using BasarApp.Infrastructure.Persistence;
 
 using Npgsql;
 
@@ -38,7 +38,7 @@ builder.Services.AddSingleton(dataSource);
 
 // 3) EF Core DbContext
 builder.Services.AddDbContext<BasarAppDbContext>(options =>
-    options.UseNpgsql(connectionString, o => o.UseNetTopologySuite())
+    options.UseNpgsql(connectionString, o => o.UseNetTopologySuite(, b => b.MigrationsAssembly(typeof(BasarApp.Infrastructure.Persistence.BasarAppDbContext).Assembly.FullName)))
 );
 
 // 4) Validator

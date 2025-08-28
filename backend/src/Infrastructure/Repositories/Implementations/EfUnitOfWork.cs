@@ -1,5 +1,4 @@
 using BasarApp.Application.Abstractions;
-using BasarApp.Data;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace BasarApp.Repositories.Implementations

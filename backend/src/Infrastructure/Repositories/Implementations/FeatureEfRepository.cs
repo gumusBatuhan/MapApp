@@ -1,6 +1,6 @@
 using BasarApp.Domain.Entities;
 using BasarApp.Application.Abstractions;
-using BasarApp.Data;
+using BasarApp.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace BasarApp.Repositories.Implementations

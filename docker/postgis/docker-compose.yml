@@ -1,16 +1,20 @@
-version: "3.8"
-
+version: "3.9"
 services:
-  db:
-    image: postgis/postgis:15-3.4
-    container_name: postgis-db
-    restart: always
+  postgis:
+    image: postgis/postgis:16-3.4
+    container_name: basarapp-postgis
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: [REDACTED]
-      POSTGRES_DB: spatialdb
+      POSTGRES_DB: basarapp
+      POSTGRES_USER: basaruser
+      POSTGRES_PASSWORD: basarpass
+      POSTGRES_INITDB_ARGS: "--data-checksums"
     ports:
-      - "5433:5432"
+      - "5432:5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
-
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U basaruser -d basarapp"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped

@@ -1,31 +1,39 @@
-# dotnet
-bin/
-obj/
+# macOS
+.DS_Store
+
+# Node / React
+node_modules/
+*.log
+npm-debug.log*
+yarn-error.log
+pnpm-debug.log
+.eslintcache
+.next/
+dist/
+build/
+
+# Frontend (klasörünüz "frontend" ise güvenli)
+frontend/node_modules/
+frontend/.next/
+frontend/dist/
+frontend/build/
+
+# .NET (backend)
+**/bin/
+**/obj/
 *.user
 *.suo
-.vs/
-.idea/
 
-# Node / Vite
-node_modules/
-dist/
-.cache/
-.vite/
-*.log
-
-# Env
-.env
-.env.*
-!.env.example
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Frontend build artifacts
-frontend/node_modules/
-frontend/dist/
-
-# Postgres docker volume
-docker/postgis/postgres_data/
+# Docker - veritabanı/veri
 postgis-docker/postgres_data/
+**/pgdata/
+**/pg_wal/
+
+# IDE/Editor
+.vscode/
+.idea/
+*.iml
+
+# Env/Sırlar
+.env
+.env.*.local

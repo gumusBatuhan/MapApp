@@ -16,12 +16,14 @@
     "@tabler/icons-webfont": "^3.34.1",
     "axios": "^1.11.0",
     "bootstrap": "^5.3.7",
+    "lodash.debounce": "^4.0.8",
     "ol": "^10.6.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@types/lodash.debounce": "^4.0.9",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",

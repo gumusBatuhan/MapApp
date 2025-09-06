@@ -10,10 +10,16 @@ import './Styles/Global.css';
 // Tabler ikonları
 import '@tabler/icons-webfont/dist/tabler-icons.min.css'
 
+// özelleştirilmiş mesajlar
+import NotifyProvider from "./notify/NotifyProvider";
+
 import App from './App'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <NotifyProvider>
+      <App />
+    </NotifyProvider>
+  </React.StrictMode>
+);

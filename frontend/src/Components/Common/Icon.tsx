@@ -1,5 +1,5 @@
-
-export type IconName = "select" | "point" | "line" | "polygon" | "refresh" | "clear";
+// src/Components/Common/Icon.tsx
+export type IconName = "select" | "point" | "line" | "polygon" | "refresh" | "clear" | "move";
 
 export default function Icon({
   name,
@@ -65,6 +65,17 @@ export default function Icon({
         <svg {...common}>
           <line x1="5" y1="5" x2="19" y2="19" />
           <line x1="19" y1="5" x2="5" y2="19" />
+        </svg>
+      );
+    case "move":
+      return (
+        <svg {...common}>
+          {/* dört yöne ok */}
+          <path d="M12 2 L14.5 4.5 L12.8 4.5 L12.8 9.2 L11.2 9.2 L11.2 4.5 L9.5 4.5 Z" />
+          <path d="M12 22 L9.5 19.5 L11.2 19.5 L11.2 14.8 L12.8 14.8 L12.8 19.5 L14.5 19.5 Z" />
+          <path d="M2 12 L4.5 9.5 L4.5 11.2 L9.2 11.2 L9.2 12.8 L4.5 12.8 L4.5 14.5 Z" />
+          <path d="M22 12 L19.5 14.5 L19.5 12.8 L14.8 12.8 L14.8 11.2 L19.5 11.2 L19.5 9.5 Z" />
+          <circle cx="12" cy="12" r="1.6" />
         </svg>
       );
     default:

@@ -1,0 +1,32 @@
+/* ───── Delete warning box ───── */
+.warnBox{
+  display:flex; align-items:flex-start; gap:12px;
+  padding:12px 14px;
+  background: linear-gradient(180deg, rgba(183,28,28,.12), rgba(183,28,28,.08));
+  border:1px solid rgba(255, 99, 71, .25);
+  border-radius: 12px;
+}
+
+.warnIcon{
+  flex:0 0 auto;
+  width:36px; height:36px; border-radius:999px;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(255, 99, 71, .15);
+  border: 1px solid rgba(255, 99, 71, .30);
+  color:#ff8787;
+  box-shadow: 0 2px 10px rgba(255, 99, 71, .15);
+}
+.warnIcon .ti { font-size: 20px; line-height: 1; }
+
+.warnBody{ flex:1 1 auto; }
+.warnTitle{
+  color:#fff; font-weight:800; letter-spacing:.3px;
+  font-size:14px; margin-bottom:4px; text-transform:uppercase;
+}
+.warnText{
+  color: var(--text); line-height:1.5; font-size:14px;
+}
+.entityName{
+  color:#ffd8d8; font-weight:700;
+  text-shadow: 0 1px 12px rgba(255, 131, 131, .25);
+}

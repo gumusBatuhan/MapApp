@@ -5,13 +5,22 @@ using NetTopologySuite.Geometries;
 
 namespace BasarApp.Api.Helpers
 {
+    /// <summary>
+    /// Swagger/Swashbuckle şema filtresi.
+    /// Amaç: NTS Geometry tipleri için GeoJSON örneği göstermek.
+    /// Kullanım: AddSwaggerGen(...).SchemaFilter&lt;GeomSchemaFilter&gt;()
+    /// </summary>
     public class GeomSchemaFilter : ISchemaFilter
     {
+        /// <summary>
+        /// Geometry tipi algılanırsa şema tipini/örneğini GeoJSON ile zenginleştirir.
+        /// </summary>
         public void Apply(OpenApiSchema schema, SchemaFilterContext context)
         {
+            // Hedef: NetTopologySuite.Geometries.Geometry
             if (context.Type == typeof(Geometry))
             {
-                // GeoJSON örneği
+                // Tipi object olarak işaretle ve basit Point örneği ver
                 schema.Type = "object";
                 schema.Example = new OpenApiString(@"
                 {

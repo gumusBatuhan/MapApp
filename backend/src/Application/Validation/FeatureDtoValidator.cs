@@ -7,11 +7,16 @@ using NetTopologySuite.Operation.Valid;
 
 namespace BasarApp.Application.Validators
 {
+    /// <summary>
+    /// FeatureDto için alan doğrulayıcı.
+    /// Name ve Geom zorunlu; Geom yalnızca Point/LineString/Polygon olmalı ve topolojik olarak geçerli olmalı.
+    /// Bağımlılıklar: FluentValidation, NTS (IsValidOp), Messages (hata metinleri).
+    /// </summary>
     public class FeatureDtoValidator : AbstractValidator<FeatureDto>
     {
         public FeatureDtoValidator()
         {
-            // Name
+            // Name zorunlu ve max 50
             RuleFor(x => x.Name)
                 .NotEmpty().WithMessage(Messages.Error.NameEmpty)
                 .MaximumLength(50).WithMessage(Messages.Error.NameTooLong);
@@ -22,12 +27,12 @@ namespace BasarApp.Application.Validators
                 .Must(g => g is not null && !g.IsEmpty)
                 .WithMessage(Messages.Error.GeomEmpty);
 
-            // Geom: sadece Point / LineString / Polygon
+            // Geom: tip kontrolü (Point | LineString | Polygon)
             RuleFor(x => x.Geom)
                 .Must(g => g is Point || g is LineString || g is Polygon)
                 .WithMessage(Messages.Error.GeomInvalid);
 
-            // Geom: topolojik geçerlilik (self-intersection vb.)
+            // Geom: topolojik geçerliliği kontrol eder
             RuleFor(x => x.Geom)
                 .Must(g =>
                 {
@@ -38,6 +43,9 @@ namespace BasarApp.Application.Validators
                 .WithMessage(Messages.Error.GeomInvalid);
         }
 
+        /// <summary>
+        /// DTO'yu doğrular; ilk hatada Fail, geçerliyse Success döner.
+        /// </summary>
         public ApiResponse<bool> ValidateToApiResponse(FeatureDto dto, CancellationToken ct = default)
         {
             var result = this.Validate(dto);

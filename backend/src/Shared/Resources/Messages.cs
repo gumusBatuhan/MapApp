@@ -16,6 +16,8 @@ namespace BasarApp.Shared.Resources
             public static readonly string NameEmpty = "Name alanı boş olamaz.";
             public static readonly string NameTooLong = "Name 50 karakterden uzun olamaz.";
 
+            public static readonly string EmptyList = "Liste boş.";
+
             // GeoJSON uyumlu mesajlar:
             public static readonly string GeomEmpty = "Geometri (GeoJSON) alanı boş olamaz.";
             public static readonly string GeomInvalid = "Geçersiz GeoJSON geometrisi.";
@@ -23,14 +25,14 @@ namespace BasarApp.Shared.Resources
             public static readonly string NotFound = "Kayıt bulunamadı.";
             public static readonly string InvalidData = "Geçersiz veri girişi.";
 
-            // 500 kararını veren sabit önek (mapper StartsWith ile bunu kontrol ediyor)
+            // 500 kararını veren sabit mesaj
             public static readonly string UnexpectedError = "Beklenmeyen bir hata oluştu.";
 
             // Batch işlemler için açıklayıcı ifade:
             public static readonly string BatchErrorsOccurred = "Toplu işlem sırasında bir veya birden fazla satırda hata oluştu.";
 
             /// <summary>
-            /// Beklenmeyen hata mesajını TEK BİR KALIPTA üretir.
+            /// Beklenmeyen hata mesajını tek bir kalıpta üretir.
             /// Mapper, 500 durumunu UnexpectedError önekiyle algılar.
             /// </summary>
             public static string UnexpectedWith(string details)

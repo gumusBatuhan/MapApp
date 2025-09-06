@@ -60,3 +60,4 @@ docker/**/pg_wal/
 .env
 .env.local
 *.env
+**/.env

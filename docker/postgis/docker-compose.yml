@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_DB: BasarAppDB
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: "[REDACTED]"
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_INITDB_ARGS: "--data-checksums"
     ports:
       - "5433:5432"   # host:container

@@ -37,3 +37,26 @@ postgis-docker/postgres_data/
 # Env/Sırlar
 .env
 .env.*.local
+.DS_Store
+
+frontend/node_modules/
+frontend/.next/
+frontend/dist/
+frontend/build/
+*.log
+npm-debug.log*
+yarn-error.log
+pnpm-debug.log
+
+backend/**/bin/
+backend/**/obj/
+*.user
+*.suo
+
+docker/**/postgres_data/
+docker/**/pgdata/
+docker/**/pg_wal/
+
+.env
+.env.local
+*.env
